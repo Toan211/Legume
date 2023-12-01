@@ -13,6 +13,16 @@ $(document).ready(function () {
 		dots: true,
 		
 	}); */
+	$(window).on("load", function () {
+		let loader = $(".loader");
+		console.log(loader);
+
+		loader.addClass("loader--hidden");
+
+		loader.on("transitionend", () => {
+			loader.removeClass("loader")
+		});
+	});
 
 	$("#banner-slide").owlCarousel({
 		loop: true,
@@ -77,7 +87,9 @@ $(document).ready(function () {
 
 		$(".nav-m-sidebar > ul > li > a").each(function (event) {
 			if (windowTop >= $($(this).attr("href")).offset().top - 100) {
-				$(".nav-m-sidebar > ul > li > a.active-mobile-nav").removeClass("active-mobile-nav");
+				$(".nav-m-sidebar > ul > li > a.active-mobile-nav").removeClass(
+					"active-mobile-nav"
+				);
 				$(this).addClass("active-mobile-nav");
 			}
 		});
@@ -92,7 +104,7 @@ $(document).ready(function () {
 			// On-page links
 			if (
 				location.pathname.replace(/^\//, "") ==
-				this.pathname.replace(/^\//, "") &&
+					this.pathname.replace(/^\//, "") &&
 				location.hostname == this.hostname
 			) {
 				// Figure out element to scroll to
@@ -161,41 +173,59 @@ $(document).ready(function () {
 	}
 
 	// Form contact
-	$('form#contact_form').on("submit", async function (event) {
+	$("form#contact_form").on("submit", async function (event) {
 		// link ='contact/save';
-		link = '#';
-		let $inputFName = $('#contact_form :input[name=fName]');
-		let $inputLName = $('#contact_form :input[name=lName]');
-		let $inputEmail = $('#contact_form :input[name=email]');
-		
-		let $inputMessage = $('#contact_form :input[name=message]');
-		let $inputSubject = $('#contact_form :input[name=subject]');
+		link = "#";
+		let $inputFName = $("#contact_form :input[name=fName]");
+		let $inputLName = $("#contact_form :input[name=lName]");
+		let $inputEmail = $("#contact_form :input[name=email]");
 
-		if (!$inputFName.val() || !$inputEmail.val() || !$inputLName.val() || !$inputMessage.val() || !$inputSubject.val()) {
+		let $inputMessage = $("#contact_form :input[name=message]");
+		let $inputSubject = $("#contact_form :input[name=subject]");
+
+		if (
+			!$inputFName.val() ||
+			!$inputEmail.val() ||
+			!$inputLName.val() ||
+			!$inputMessage.val() ||
+			!$inputSubject.val()
+		) {
 			if (!$inputFName.val()) {
-				$('#contact_form :input[name=fName]').notify("Your first name is empty!", { position: "top", className: 'info' });
+				$("#contact_form :input[name=fName]").notify(
+					"Your first name is empty!",
+					{ position: "top", className: "info" }
+				);
 			}
 			if (!$inputLName.val()) {
-				$('#contact_form :input[name=lName]').notify("Your last name is empty!", { position: "top", className: 'info' });
+				$("#contact_form :input[name=lName]").notify(
+					"Your last name is empty!",
+					{ position: "top", className: "info" }
+				);
 			}
 			if (!$inputEmail.val()) {
-				$('#contact_form :input[name=email]').notify("Please jot down your email!", { position: "top", className: 'info' });
+				$("#contact_form :input[name=email]").notify(
+					"Please jot down your email!",
+					{ position: "top", className: "info" }
+				);
 			}
-			
+
 			if (!$inputSubject.val()) {
-				$('#contact_form :input[name=subject]').notify("Please don't skip this one!", { position: "top", className: 'info' });
+				$("#contact_form :input[name=subject]").notify(
+					"Please don't skip this one!",
+					{ position: "top", className: "info" }
+				);
 			}
 			if (!$inputMessage.val()) {
-				$('#contact_form :input[name=message]').notify("Please don't skip this one!", { position: "top", className: 'info' });
+				$("#contact_form :input[name=message]").notify(
+					"Please don't skip this one!",
+					{ position: "top", className: "info" }
+				);
 			}
-			console.log('false submit');
+			console.log("false submit");
 			event.preventDefault();
 			return false;
 		} else {
 			window.location.href = link;
-
 		}
 	});
-
-
 });
