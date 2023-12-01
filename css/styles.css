@@ -751,7 +751,7 @@
 
 #banner-slide .item .product-content span {
 	font-size: 1.5rem;
-	color: #95b949;
+	color: rgb(142 142 142);
 }
 
 .underline-inOut::after {
@@ -819,7 +819,7 @@
 }
 
 .ser-button button:hover {
-	background-color: #7ba532;
+	background-color: #64832D;
 }
 
 .ser-button button:active:focus {
@@ -848,7 +848,7 @@
 }
 
 .quote-content-arr:hover {
-	color: #95b949;
+	color: #64832D;
 }
 
 .quote-content > i {
@@ -985,11 +985,11 @@
 }
 
 .our-team-image-overlay-text a:hover {
-	background-color: #88b33d;
+	background-color: #64832D;
 }
 
 .our-team-image-contain > ul li > .montserrat-regular {
-	color: #95b949;
+	color: #64832D;
 	font-weight: 600;
 	margin-top: 30px;
 	margin-bottom: 15px;
@@ -1000,7 +1000,7 @@
 }
 
 .our-team-image-contain > ul li > .roboto-light-italic:hover {
-	color: #92b655;
+	color: #64832D;
 	text-decoration: underline;
 }
 
